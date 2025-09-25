@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Ejemplo avanzado de pseudo-elementos</title>
 <style>
-  /* === ESTILO GENERAL === */
+  /*  ESTILO GENERAL  */
   body {
     font-family: Arial, sans-serif;
     padding: 20px;
@@ -12,7 +12,7 @@
     line-height: 1.6;
   }
 
-  /* === PÁRRAFOS ::before y ::after ===
+  /*  PÁRRAFOS ::before y ::after 
      Añadimos iconos antes y después del texto */
   p::before {
     content: '\1F6C8'; /* icono de información */
@@ -26,7 +26,7 @@
     margin-left: 8px;
   }
 
-  /* === PÁRRAFOS ::first-letter ===
+  /*  PÁRRAFOS ::first-letter 
      Primera letra grande y de color */
   p::first-letter {
     font-size: 200%;
@@ -34,14 +34,14 @@
     font-weight: bold;
   }
 
-  /* === PÁRRAFOS ::first-line ===
+  /*  PÁRRAFOS ::first-line 
      Primera línea en sans-serif y cursiva */
   p::first-line {
     font-family: sans-serif;
     font-style: italic;
   }
 
-  /* === LISTAS ::marker ===
+  /*  LISTAS ::marker 
      Cambiamos el marcador de la lista por un icono */
   li::marker {
     content: '\23F5'; /* icono de botón play */
@@ -49,14 +49,14 @@
     font-size: 1.2em;
   }
 
-  /* === LISTAS ::selection ===
+  /*  LISTAS ::selection 
      Texto seleccionado en los elementos de la lista */
   li::selection {
     color: red;
     background: yellow;
   }
 
-  /* === MEJORAS VISUALES ADICIONALES === */
+  /*  MEJORAS VISUALES ADICIONALES  */
   p {
     padding: 10px;
     border-left: 5px solid #8A2BE2;
