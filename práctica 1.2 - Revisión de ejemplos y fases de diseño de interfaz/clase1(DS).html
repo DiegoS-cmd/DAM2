@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo de Clases en HTML</title>
+  <style>
+    /*  ESTILO GENERAL DEL BODY 
+       Fondo con degradado en lugar de un solo color */
+    body {
+      background: linear-gradient(to bottom, rgb(82, 49, 143), rgb(180, 140, 255));
+      font-family: Arial, sans-serif;
+      color: white;
+      padding: 20px;
+    }
+
+    /*  CLASE .red 
+       Antes: solo color rojo
+       Ahora: color rojo, sombra y transición para que cambie en hover */
+    .red {
+      color: red;
+      text-shadow: 1px 1px 3px black;
+      transition: color 0.3s ease;
+    }
+    .red:hover {
+      color: yellow; /* al pasar el ratón, cambia de rojo a amarillo */
+    }
+
+    /*  CLASE .bold 
+       Antes: solo font-weight bold
+       Ahora: negrita + tamaño mayor + mayúsculas */
+    .bold {
+      font-weight: bold;
+      font-size: 1.2em;
+      text-transform: uppercase;
+    }
+
+    /*  COMBINACIÓN DE CLASES 
+       Para elementos que tengan .red y .bold al mismo tiempo */
+    .red.bold {
+      background-color: rgba(255,255,255,0.1);
+      padding: 10px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    /* === EXTRA: PÁRRAFOS SIN CLASE === */
+    p {
+      margin-bottom: 10px;
+    }
+    p:not([class]) {
+      font-style: italic;
+      color: lightgray; /* se diferencian los que no tienen clase */
+    }
+  </style>
+</head>
+<body>
+  <h2 class="red bold">
+    Este título combina los estilos aplicados de la clase "red"
+    y "bold".
+  </h2>
+
+  <p>A este párrafo no se le ha aplicado ninguna clase.</p>
+
+  <p class="red">Este párrafo es rojo con efecto hover.</p>
+
+  <div class="bold">Este div es negrita y en mayúsculas.</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo avanzado con ID en CSS</title>
+  <style>
+    /* === ESTILO DEL BODY ===
+       Fondo suave, tipografía legible y padding general */
+    body {
+      background: linear-gradient(to bottom, #f0fff0, #e0f7fa);
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    /* === ID #tituloPrincipal ===
+       Antes: color verde oscuro y tamaño 28px
+       Ahora: además sombra de texto y transición para hover */
+    #tituloPrincipal {
+      color: darkgreen;
+      font-size: 32px;
+      text-align: center;
+      border-bottom: 3px solid darkgreen;
+      padding-bottom: 12px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    #tituloPrincipal:hover {
+      color: seagreen;
+      transform: scale(1.05);
+    }
+
+    /* === ID #parrafoDestacado ===
+       Antes: fondo amarillo y cursiva
+       Ahora: borde más visible, sombra, padding extra y efecto hover */
+    #parrafoDestacado {
+      background-color: lightyellow;
+      font-style: italic;
+      padding: 15px;
+      border: 2px solid orange;
+      border-radius: 10px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    #parrafoDestacado:hover {
+      background-color: #fff8dc; /* efecto hover */
+      transform: translateY(-3px);
+    }
+
+    /* === PÁRRAFO NORMAL ===
+       Distinción visual de los elementos sin ID */
+    p:not([id]) {
+      background-color: #f9f9f9;
+      padding: 8px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Título principal con ID -->
+  <h1 id="tituloPrincipal">Este es el título principal</h1>
+
+  <!-- Párrafo destacado con ID -->
+  <p id="parrafoDestacado">Este párrafo está destacado con un identificador único.</p>
+
+  <!-- Otro párrafo normal sin ID -->
+  <p>Este párrafo no tiene ID, así que no recibe el estilo especial.</p>
+</body>
+</html>

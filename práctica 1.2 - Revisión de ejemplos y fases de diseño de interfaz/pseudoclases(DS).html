@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejemplo Avanzado de Pseudo-clases y JS</title>
+<base href="https://www.w3schools.com/" target="_blank"/>
+<style>
+    /* === ESTILO GENERAL === */
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: linear-gradient(to bottom, #f0f8ff, #e6f7ff);
+    }
+
+    /* === ESTILO DE ENLACES === */
+    a {
+        margin: 4px; 
+        padding: 6px 10px;
+        border: 2px solid;
+        border-radius: 6px; /* añadido borde redondeado */
+        text-decoration: none;
+        transition: all 0.3s ease; /* transición suave al hover */
+    }
+
+    a:link {
+        border-color: grey; 
+        background-color: silver; 
+        color: grey;
+    }
+
+    a:hover {
+        border-color: lightyellow; 
+        background-color: darkgrey; 
+        color: lightyellow;
+        transform: scale(1.05); /* efecto zoom al pasar el ratón */
+    }
+
+    a:active {
+        border-color: beige; 
+        background-color: dimgrey; 
+        color: beige;
+        transform: scale(0.98); /* efecto presionado */
+    }
+
+    a:visited {
+        color: bisque;
+    }
+
+    /* === ESTILO DE INPUT === */
+    input[type="text"] {
+        padding: 6px;
+        border-radius: 5px;
+        border: 1px solid #888;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    input:disabled {
+        background-color: #dddddd;
+        color: #777;
+    }
+
+    input:enabled {
+        background-color: aliceblue;
+    }
+
+    input:checked {
+        width: 20px; 
+        height: 20px;
+        accent-color: darkgreen; /* color del check */
+    }
+
+    /* === ESTILO DEL BOTÓN === */
+    button {
+        margin: 5px;
+        padding: 6px 12px;
+        border-radius: 5px;
+        border: 2px solid #555;
+        background-color: lightblue;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+        background-color: deepskyblue;
+        transform: scale(1.05);
+    }
+
+    button:active {
+        transform: scale(0.95);
+    }
+
+    /* === NAV BAR === */
+    nav {
+        margin: 15px 0;
+        font-weight: bold;
+    }
+</style>
+
+<script>
+function habilitarDeshabilitar(){
+    const element = document.querySelector("input[type='text']");
+    const boton = document.querySelector("button");
+    if (element.disabled) {
+        element.removeAttribute("disabled");
+        boton.innerHTML = "Deshabilitar";
+        element.focus();
+    } else {
+        element.setAttribute('disabled', '');
+        boton.innerHTML = "Habilitar";
+    }
+}
+</script>
+</head>
+<body>
+    <input type="text" placeholder="Pon algo..." disabled/>
+    <input type="checkbox" name="checkbox" id="checkbox">
+    <label for="checkbox">Seleccionar</label>
+    <br/><br/>  
+
+    <nav>
+        <a href="/html/">HTML</a> |
+        <a href="/css/">CSS</a> |
+        <a href="/js/">JavaScript</a> |
+        <a href="/python/">Python</a>
+    </nav>
+
+    <button onclick="habilitarDeshabilitar()">Habilitar</button>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo avanzado de clases</title>
+  <style>
+    /* === ESTILO GENERAL DE PÁGINA ===
+       Fondo suave y tipografía moderna */
+    body {
+      background: linear-gradient(to bottom, #f0f4ff, #e8ffe8);
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    /* === COMBINACIÓN DE CLASES .resaltado.subrayado ===
+       Antes: solo rojo + subrayado
+       Ahora: además fondo rosado, padding y borde redondeado */
+    .resaltado.subrayado {
+      color: red;
+      text-decoration: underline;
+      background-color: #ffe6e6;
+      padding: 6px 10px;
+      border-radius: 6px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    .resaltado.subrayado:hover {
+      background-color: #ffcccc; /* efecto hover */
+    }
+
+    /*  PÁRRAFOS .resaltado 
+       Antes: solo negrita
+       Ahora: añadimos color azul oscuro */
+    p.resaltado {
+      font-weight: bold;
+      color: #003366;
+    }
+
+    /*  ELEMENTOS .resaltado DENTRO DE .contenedor 
+       Antes: solo fondo amarillo
+       Ahora: además borde lateral izquierdo para resaltarlo */
+    .contenedor .resaltado {
+      background: lightyellow;
+      border-left: 5px solid gold;
+      padding-left: 10px;
+    }
+
+    /*  HERMANO ADYACENTE (.resaltado + .especial) 
+       Antes: borde dashed azul y padding
+       Ahora: añadimos fondo celeste y texto en cursiva */
+    .resaltado + .especial {
+      padding: 5px 8px;
+      border: 2px dashed aqua;
+      background-color: #e0f7fa;
+      font-style: italic;
+      display: inline-block;
+      margin-left: 5px;
+      border-radius: 4px;
+      transition: transform 0.2s ease;
+    }
+    .resaltado + .especial:hover {
+      transform: scale(1.1); /* efecto dinámico al pasar el ratón */
+    }
+
+    /*  EXTRAS 
+       Espaciado entre párrafos */
+    p {
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Ejemplo mejorado de selectores de clase</h2>
+
+  <p class="resaltado">Párrafo resaltado.</p>
+
+  <p class="resaltado subrayado">Párrafo resaltado y subrayado</p>
+
+  <div class="contenedor">
+    <p class="resaltado">Resaltado dentro de contenedor</p>
+  </div>
+
+  <p class="resaltado">Este párrafo contiene resaltado </p>
+  <span class="especial">Y este texto con clase especial</span>
+</body>
+</html>

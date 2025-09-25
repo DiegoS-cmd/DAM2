@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo avanzado de selectores CSS</title>
+  <style>
+    /*  SELECTOR DESCENDIENTE  
+       Aplica a todos los <span> que estén dentro de un <p>.
+       Mejora: añadimos color de fondo llamativo, padding y bordes redondeados */
+    p span {
+      background-color: aqua;
+      padding: 4px 6px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    /*  SELECTOR HIJO DIRECTO  
+       Aplica a <span> que son hijos DIRECTOS de <div>.
+       Mejora: añadimos borde, sombra y cambio de color al pasar el ratón */
+    div > span {
+      background-color: bisque;
+      padding: 6px;
+      display: inline-block;
+      border: 1px solid #e6a96d;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+    div > span:hover {
+      background-color: coral;
+      color: white;
+    }
+
+    /*  SELECTOR DE HERMANO ADYACENTE 
+       Aplica a <b> inmediatamente después de un <span>.
+       Mejora: añadimos fondo más visible, tipografía distinta y espaciado */
+    span + b {
+      margin: 6px;
+      padding: 4px;
+      background-color: burlywood;
+      font-style: italic;
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    /*  SELECTOR DE HERMANOS GENERALES 
+       Aplica a todo <div> que sea hermano posterior de un <p> en el mismo nivel.
+       Mejora: añadimos borde más grueso, sombra y espaciado */
+    p ~ div {
+      border: 2px solid cadetblue;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #f9ffff;
+      box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+    }
+
+    /*  EXTRAS: ESTILO GENERAL DE PÁGINA  
+       Para hacerlo más legible y atractivo */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+      background: linear-gradient(to bottom, #f5faff, #e0f7fa);
+    }
+
+    h1 {
+      text-align: center;
+      color: #00796b;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ejemplo Avanzado de Selectores CSS</h1>
+
+  <div>
+    <p>Primer párrafo sin <span>estilo especial</span>.</p> 
+    <p><span>Primera palabra</span> del segundo párrafo con estilos mejorados.</p>
+
+    <div>
+      <p>
+        <span>Primera palabra</span>
+        <b>remarcada</b> <strong>e importante</strong> 
+        dentro de un párrafo más interior
+      </p>
+      <span>Sólo es una frase <b>suelta</b> con hover interactivo.</span>
+    </div>
+  </div>
+</body>
+</html>

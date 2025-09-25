@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejemplo avanzado de pseudo-elementos</title>
+<style>
+  /* === ESTILO GENERAL === */
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: linear-gradient(to bottom, #fefefe, #e0f7fa);
+    line-height: 1.6;
+  }
+
+  /* === PÁRRAFOS ::before y ::after ===
+     Añadimos iconos antes y después del texto */
+  p::before {
+    content: '\1F6C8'; /* icono de información */
+    margin-right: 8px;
+    font-size: 1.2em;
+  }
+  p::after {
+    content: '\23F4'; /* icono de flecha */
+    color: #e03574;
+    font-size: 1.5em;
+    margin-left: 8px;
+  }
+
+  /* === PÁRRAFOS ::first-letter ===
+     Primera letra grande y de color */
+  p::first-letter {
+    font-size: 200%;
+    color: #8A2BE2;
+    font-weight: bold;
+  }
+
+  /* === PÁRRAFOS ::first-line ===
+     Primera línea en sans-serif y cursiva */
+  p::first-line {
+    font-family: sans-serif;
+    font-style: italic;
+  }
+
+  /* === LISTAS ::marker ===
+     Cambiamos el marcador de la lista por un icono */
+  li::marker {
+    content: '\23F5'; /* icono de botón play */
+    color: #e03574;
+    font-size: 1.2em;
+  }
+
+  /* === LISTAS ::selection ===
+     Texto seleccionado en los elementos de la lista */
+  li::selection {
+    color: red;
+    background: yellow;
+  }
+
+  /* === MEJORAS VISUALES ADICIONALES === */
+  p {
+    padding: 10px;
+    border-left: 5px solid #8A2BE2;
+    background-color: #f7f0ff;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+  p:hover {
+    background-color: #e0d4ff;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+  li {
+    padding: 4px 0;
+    transition: transform 0.2s ease;
+  }
+  li:hover {
+    transform: scale(1.05);
+    color: darkmagenta;
+  }
+</style>
+</head>
+<body>
+  <p>Este primer párrafo es bastante importante. Y lo voy a hacer lo más largo posible ya que quiero que se remarque su primera línea. Y si no muestra varias líneas, pues no lo vamos a notar.</p>
+
+  <ul>
+    <li>Primer Elemento</li>
+    <li>Segundo Elemento</li>
+    <li>Tercer Elemento</li>
+  </ul>
+</body>
+</html>

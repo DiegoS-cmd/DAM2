@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo avanzado de selectores de atributos</title>
+  <style>
+    /*  SELECTOR [selected]  
+       Todos los elementos que tengan el atributo selected 
+       → Cambiamos color del texto y añadimos subrayado */
+    [selected] {
+      color: chartreuse;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    /*  SELECTOR [disabled]  
+       Aplica a los inputs deshabilitados 
+       → Añadimos fondo gris, borde y cursor bloqueado */
+    [disabled] {
+      background-color: lightslategray;
+      color: white;
+      border: 2px dashed black;
+      cursor: not-allowed;
+    }
+
+    /*  SELECTOR [name="provincia"]  
+       Aplica al select con nombre provincia 
+       → Cambiamos tipografía y color de fondo */
+    [name="provincia"] {
+      font-family: cursive;
+      background-color: #f1f8e9;
+      padding: 4px;
+      border-radius: 5px;
+    }
+
+    /*  SELECTOR [placeholder~="su"]  
+       Input con placeholder que contenga la palabra "su" 
+       → Añadimos borde rojo y fondo suave */
+    [placeholder~="su"] {
+      border: 2px solid red;
+      background-color: #fff5f5;
+      padding: 4px;
+    }
+
+    /*  SELECTOR [name|="opt"]  
+       Atributos que empiezan con "opt" o "opt-" 
+       → Estilo oblicuo y color azul */
+    [name|="opt"] {
+      font-style: oblique;
+      color: navy;
+    }
+
+    /*  SELECTOR [name^="opt"]  
+       Atributos que EMPIEZAN por "opt" 
+       → Negrita y fondo celeste */
+    [name^="opt"] {
+      font-weight: bolder;
+      background-color: #e0f7fa;
+    }
+
+    /*  SELECTOR [name$="ado"]  
+       Atributos que TERMINAN en "ado" 
+       → Fondo gris y borde redondeado */
+    [name$="ado"] {
+      background-color: gainsboro;
+      border-radius: 6px;
+    }
+
+    /*  SELECTOR [type*="ex"]  
+       Atributos type que contienen "ex" (ej: reset, text) 
+       → Fondo crema, margen y animación hover */
+    [type*="ex"] {
+      background-color: antiquewhite;
+      margin: 5px;
+      padding: 6px;
+      border: 1px solid #d8b28c;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    [type*="ex"]:hover {
+      background-color: orange;
+      color: white;
+    }
+
+    /*  ESTILO GENERAL DE FORMULARIO  */
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #f0f9ff, #e0f2f1);
+      padding: 20px;
+    }
+    fieldset {
+      border: 2px solid #00796b;
+      padding: 15px;
+      border-radius: 10px;
+      background-color: #ffffffcc;
+    }
+    legend {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #004d40;
+    }
+    label {
+      display: inline-block;
+      width: 180px;
+      margin: 5px 0;
+    }
+    input, select {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <form action="#" method="get">
+    <fieldset>
+      <legend>Dirección:</legend>
+
+      <label for="nombre">Introduzca su nombre:</label>
+      <input type="text" name="nombre" placeholder="Aquí su nombre..."/>
+      <br/>
+
+      <label for="apellido">Introduzca su apellido:</label>
+      <input type="text" name="apellido" placeholder="Aquí su apellido..."/>
+      <br/>
+
+      <label for="pais">País:</label>
+      <select name="pais" id="pais">
+        <option value="ES" name="opt-pais1" selected>España</option>
+        <option value="PT" name="opt-pais2">Portugal</option>
+        <option value="AN" name="opt-pais3">Andorra</option>
+        <option value="FR" name="opt-pais4">Francia</option>
+        <option value="AT" name="opt-pais5" disabled>Atlántida</option>
+      </select>
+
+      <br/>
+
+      <label for="provincia">Provincia:</label>
+      <select name="provincia" id="provincia">
+        <option value="MAD" name="optProv1" selected>Madrid</option>
+        <option value="BCN" name="optProv2">Barcelona</option>
+        <option value="VAL" name="optProv3">Valencia</option>
+        <option value="SEV" name="optProv4">Sevilla</option>
+      </select>
+
+      <br/>
+
+      <input type="button" name="btnDeshabilitado" value="En construcción" disabled>
+      <br/>
+      <input type="reset" value="Limpiar" name="btn-limpiar"/>
+      <br/>
+      <input type="submit" value="Enviar" name="btn-enviar"/>
+    </fieldset>
+  </form>
+</body>
+</html>
