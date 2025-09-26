@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Modelo cajas</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Courier New", monospace; /* Cambio de tipografía para un estilo retro */
+      background: linear-gradient(135deg, #ffecd2, #fcb69f); /* Fondo degradado llamativo */
+    }
+
+    h1 {
+      text-align: center;
+      color: #222;
+      font-size: 3rem;
+      text-shadow: 3px 3px #ff8c42; /* Sombra de texto poco convencional para resaltar */
+      transform: rotate(-2deg); /* Ligeramente torcido para darle un toque distinto */
+    }
+
+    p {
+      max-width: 600px;
+      margin: 20px auto;
+      background: rgba(255, 255, 255, 0.6); /* Fondo translúcido */
+      padding: 15px;
+      border: 3px dashed #ff8c42; /* Borde punteado para un estilo desenfadado */
+      border-radius: 20px; /* Bordes muy redondeados */
+      backdrop-filter: blur(5px); /* Efecto difuminado */
+      font-style: italic; /* Texto en cursiva */
+    }
+
+    ul {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      list-style: square inside; /* Lista con cuadrados internos */
+      padding: 0;
+    }
+
+    li {
+      background: #fff5e1;
+      padding: 10px 15px;
+      border-radius: 12px;
+      box-shadow: -4px -4px 8px rgba(0,0,0,0.1); /* Sombra inversa inusual */
+      transition: transform 0.3s ease-in-out;
+    }
+
+    li:hover {
+      transform: scale(1.2) rotate(5deg); /* Animación poco convencional al pasar el ratón */
+      background: #ffe29f;
+    }
+
+    button {
+      display: block;
+      margin: 30px auto;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      background: conic-gradient(from 180deg, #84fab0, #8fd3f4, #84fab0); /* Gradiente cónico distinto */
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+
+    button:hover {
+      letter-spacing: 3px; /* Aumenta espacio entre letras */
+      transform: skewX(-10deg); /* Efecto poco común */
+      background: conic-gradient(from 90deg, #f6d365, #fda085, #f6d365);
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Titulo Principal</h1>
+  <p>
+    Este documento HTML ha sido modificado por Diego Sánchez, 
+    ahpra tiene un diseño atractivo y llamativo.
+  </p>
+
+  <ul>
+    <li>Elemento 1</li>
+    <li>Elemento 2</li>
+    <li>Elemento 3</li>
+  </ul>
+
+  <button>¡Haz clic aquí!</button>
+</body>
+</html>
