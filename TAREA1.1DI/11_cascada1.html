@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>@layer en CSS</title>
+  <style>
+
+    @layer reset, base, theme;
+
+
+    @layer reset {
+      button {
+        all: unset;
+        background: none;
+        color: black;
+        font-family: inherit;
+        cursor: pointer;
+      }
+    }
+
+
+    @layer base {
+      button {
+        padding: 10px 25px;
+        border: 2px solid #888;
+        border-radius: 6px;
+        background: #e0e0e0;
+        color: #333;
+        font-size: 16px;
+        transition: background 0.3s, transform 0.2s;
+      }
+    }
+
+
+    @layer theme {
+      button {
+        background: #5a2d82;
+        color: white;
+        border-color: #5a2d82;
+      }
+
+      button:hover {
+        background: #7b43b3;
+        transform: translateY(-2px);
+      }
+    }
+
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #f9f8fc;
+      color: #333;
+      text-align: center;
+      padding: 60px;
+    }
+
+    h2 {
+      color: #5a2d82;
+      margin-bottom: 30px;
+    }
+
+    p {
+      color: #555;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Ejemplo con <code>@layer</code> en CSS</h2>
+  <p>Las capas controlan el orden de aplicación de los estilos, sin importar dónde estén declarados en el archivo.</p>
+  <button>Botón con capas</button>
+</body>
+</html>

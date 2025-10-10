@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Especificidad en CSS</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #f7f7fb;
+      color: #333;
+      margin: 40px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #5a2d82;
+      margin-bottom: 30px;
+    }
+
+    div, p {
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+      border: 1px solid #ccc;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    div:hover, p:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+
+    div {
+      background: lightgray;
+      color: black;
+    }
+
+    .container {
+      background: lightblue;
+    }
+
+
+    #element {
+      background: lightgreen;
+    }
+
+
+    section .container {
+      background: #fff08a; 
+    }
+
+
+    .forzado {
+      background: orange !important;
+    }
+
+    strong {
+      color: #5a2d82;
+    }
+
+    section {
+      border-top: 2px solid #ccc;
+      padding-top: 20px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h2> Ejemplo de Especificidad en CSS</h2>
+
+  <div class="container" id="element">
+    Soy un div con <strong>id="element"</strong>
+    y <strong>class="container"</strong>
+  </div>
+
+  <section>
+    <p class="container">Soy un párrafo con <strong>class="container"</strong>
+        dentro de una <strong>&lt;section&gt;</strong></p>
+  </section>
+
+  <div class="container forzado" id="element" style="background: pink;">
+    Tengo de todo: <br>
+    • Selector de etiqueta (<code>div</code>)<br>
+    • Clase (<code>.container</code>)<br>
+    • ID (<code>#element</code>)<br>
+    • Estilo inline (<code>background: pink;</code>)<br>
+    • Clase con <code>!important</code> (<code>.forzado</code>)
+  </div>
+</body>
+</html>
