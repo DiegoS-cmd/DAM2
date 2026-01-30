@@ -1,0 +1,134 @@
+import { useState } from "react"; // Importa useState hook para manejar estado en componentes funcionales
+
+export default function App() {
+  // Componente principal de React
+  // Estado para la lista de tareas (array de objetos {id, texto})
+  const [tareas, setTareas] = useState([]);
+
+  // Estado para el texto del input
+  const [texto, setTexto] = useState("");
+
+  // Estado para ID de tarea en edición (null = modo añadir)
+  const [editId, setEditId] = useState(null);
+
+  // Función para ordenar tareas alfabéticamente
+  const ordenarAlfabeticamente = () => {
+    // Crea copia del array y ordena por texto usando localeCompare (maneja acentos)
+    setTareas([...tareas].sort((a, b) => a.texto.localeCompare(b.texto)));
+  };
+
+  // Variable calculada: true si texto actual es duplicado (case insensitive)
+  // Se recalcula en cada render cuando cambia texto o tareas
+  const existeDuplicado =
+    texto.trim() !== "" && // Solo si hay texto
+    tareas.some((t) => t.texto.toLowerCase() === texto.trim().toLowerCase()); // Compara ignorando mayúsculas
+
+  // Función principal CREATE (añadir) + UPDATE (editar)
+  const add = () => {
+    const txt = texto.trim(); // Texto limpio sin espacios
+
+    if (txt === "") return; //  no añade si vacío
+
+    // bloquea duplicados SOLO al añadir (no al editar)
+    if (editId === null && existeDuplicado) {
+      alert("Ya existe!"); // Mensaje de error
+      return;
+    }
+
+    if (editId) {
+      // MODO EDITAR: actualiza SOLO la tarea con ese ID
+      setTareas(
+        tareas.map((t) => (t.id === editId ? { ...t, texto: txt } : t)) // map crea nuevo array
+      );
+      setEditId(null); // Sale del modo editar
+    } else {
+      // MODO AÑADIR: nueva tarea con ID único
+      const nueva = { id: Date.now(), texto: txt };
+      //  auto-ordena al añadir (añade Y ordena en 1 paso)
+      const nuevasTareas = [...tareas, nueva].sort((a, b) =>
+        a.texto.localeCompare(b.texto)
+      );
+      setTareas(nuevasTareas);
+    }
+    setTexto(""); // Limpia input siempre
+  };
+
+  // Función para iniciar edición de tarea
+  const edit = (id, txt) => {
+    setEditId(id); // Marca esta tarea como editada
+    setTexto(txt); // Llena input con texto actual
+  };
+
+  // Función DELETE: elimina tarea por ID
+  const del = (id) => {
+    setTareas(tareas.filter((t) => t.id !== id));
+  };
+
+  return (
+    <div style={{ padding: "20px" }}>
+      <h1>CRUD Tareas 3.4</h1> {/* Título tarea DAM2 */}
+      <input
+        value={texto}
+        onChange={(e) => setTexto(e.target.value)} // Captura texto escrito
+        placeholder="tarea..." // Placeholder por defecto
+        style={{ padding: "5px", marginRight: "10px" }} // Estilos inline
+      />
+      {/*  Botón DESHABILITADO si vacío O duplicado */}
+      <button
+        onClick={add} // Llama función add al click
+        // disabled=true si: input vacío O (añadiendo Y duplicado)
+        disabled={texto.trim() === "" || (editId === null && existeDuplicado)}
+        style={{ padding: "5px 10px", marginRight: "10px" }}
+      >
+        {/* Texto dinámico: cambia según modo */}
+        {editId ? "Guardar" : "Añadir"}
+      </button>
+      {/*  Botón ordenar DESHABILITADO si 0-1 tareas */}
+      <button
+        onClick={ordenarAlfabeticamente} // Ordena manualmente
+        disabled={tareas.length <= 1} // Gris si no hay suficientes para ordenar
+        style={{ padding: "5px 10px" }}
+      >
+        Ordenar {/* Texto corto */}
+      </button>
+      {/* Lista de tareas renderizada con map */}
+      <ul style={{ marginTop: "20px" }}>
+        {" "}
+        {tareas.map(
+          (
+            t // Recorre cada tarea del array
+          ) => (
+            <li
+              key={t.id} // key único OBLIGATORIO para React lists
+              style={{
+                margin: "5px 0", // Separación vertical
+                padding: "5px", // Padding interno
+                border: "1px solid #ccc", // Borde visual
+              }}
+            >
+              {/* Render condicional: input SI editando, texto SINO */}
+              {editId === t.id ? (
+                <input
+                  value={texto} // Input en línea de edición
+                  onChange={(e) => setTexto(e.target.value)}
+                  style={{ marginRight: "10px" }} // Espacio para botones
+                />
+              ) : (
+                t.texto // Muestra texto normal
+              )}
+              {/* Botones acción por tarea */}
+              <button
+                onClick={() => edit(t.id, t.texto)} // Inicia edición
+                style={{ marginRight: "5px" }}
+              >
+                Editar
+              </button>
+              <button onClick={() => del(t.id)}>Eliminar</button>{" "}
+              {/* Borra tarea */}
+            </li>
+          )
+        )}
+      </ul>
+    </div>
+  );
+}
